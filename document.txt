@@ -1,1 +1,94 @@
 Git tutorial
+
+[기본]
+git add . //.(모든파일)//staging Area
+git commit -m "커밋 메세지" //.git
+git push // git hub
+
+if(local -> staging) git reset
+
+[이전 커밋상황으로 되돌아가고 싶을 때]
+git reset --hard(해당 지점 말고는 그 이후는 없애버린다) hash값(git log로 확인)
+	  --soft(보관)
+
+>github에서도 적용하기하려면	
+git push -f(강제로 똑같이)
+
+-------------------------------------------------------
+[커밋메세지 변경]
+git commit --amend
+
+-------------------------------------------------------
+[브랜치]
+(현재 브랜치 상황)
+git branch
+(브랜치 생성)
+git branch 브랜치명
+(해당 브랜치로 이동)
+git checkout 브랜치명
+
+>>병합 할 때는
+git checkout master
+git merge 브랜치명
+Git push
+
+>>병합이 끝난 후 _브랜치 제거
+git branch -d 브랜치명
+
+[병합 충돌]
+git branch / git log로 commit 상황 확인
+충돌 파일
+<<HEAD>>
+master에서의 코드
+=====
+브랜치에서의 코드
+>>>브랜치
+
+-> 어떤 부분을 선택할지 수동으로 정할 수 있다.
+수정 후 그 이후에 add하고 merge
+
+-------------------------------------------------------
+[git 원격 저장소 관리]
+git remote
+Git remote show origin //정보
+
+[원격 저장소 추가]
+git remote add 저장소명 경로
+
+[원격 저장소 이름 바꾸기]
+git remote rename 바꿀이름
+
+[원격 저장소 삭제]
+git remote rm 저장소
+
+-------------------------------------------------------
+[Read me]
+
+-------------------------------------------------------
+[Archive]
+git archive --format==zip mater-0 master.zip
+// 소스코드만을 zip파일로
+
+-------------------------------------------------------
+[깃 커밋 메세지 수정]
+git log
+방법 1)git rebase -i HEAD~3(HEAD를 기준으로 최근 3개)
+
+(Pick 수정으로 바꾸기) //insert = a 바꾼 후 esc :wq!
+=pick ~~
+=pick ~~
+=pick ~~
+
+방법 2)git rebase -i hash //hash위쪽으로 (그 전의 값)
+
+
+-------------------------------------------------------
+[커밋 삭제]
+!!협업시 사용 권장 안 함!!
+위와 방법은 동일 pick 수정
+
+
+
+
+
+
